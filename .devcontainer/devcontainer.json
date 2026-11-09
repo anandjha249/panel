@@ -1,0 +1,15 @@
+{
+  "name": "pterodactyl-panel",
+  "image": "mcr.microsoft.com/devcontainers/php:8.3-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "22" }
+  },
+  "runArgs": [
+    "--cap-add", "SYS_ADMIN",
+    "--security-opt", "apparmor=unconfined",
+    "--device", "/dev/fuse"
+  ],
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postStartCommand": "bash .devcontainer/start.sh",
+  "forwardPorts": [8080, 5173]
+}
